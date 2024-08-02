@@ -50,11 +50,6 @@ const Portfolio = () => {
       icon: <Brain size={32} />,
       title: "AI & ML",
       skills: ["Machine Learning", "AI Enthusiast"]
-    },
-    {
-      icon:<Brain size={32}/>,
-      title:"CYBER SECURITY",
-      skills:["hi","hello"]
     }
   ];
   const educationData = [

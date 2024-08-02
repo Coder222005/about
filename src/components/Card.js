@@ -112,7 +112,7 @@ const Portfolio = () => {
               <img src="" alt="Your Name" className="img-fluid rounded-circle mb-4" />
             </div>
             <div className="col-md-6 animate__animated animate__fadeInRight">
-              <p className=";;">Hi, I'm Dheeraj, a third-year Computer Science and Engineering student at SASTRA University. My areas of interest include machine learning and frontend development. I am passionate about leveraging AI to create innovative solutions and building dynamic, user-friendly web applications. With a solid foundation in both theoretical and practical aspects of computer science, I am eager to explore and contribute to cutting-edge technologies in these fields.</p>
+              <p className="">Hi, I'm Dheeraj, a third-year Computer Science and Engineering student at SASTRA University. My areas of interest include machine learning and frontend development. I am passionate about leveraging AI to create innovative solutions and building dynamic, user-friendly web applications. With a solid foundation in both theoretical and practical aspects of computer science, I am eager to explore and contribute to cutting-edge technologies in these fields.</p>
             </div>
           </div>
         </div>

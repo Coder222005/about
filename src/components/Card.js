@@ -60,15 +60,15 @@ const Portfolio = () => {
   const educationData = [
     {
       degree: "Bachelor of Technology in Computer Science",
-      institution: "Your University Name",
-      year: "2020 - 2024",
+      institution: "Sastra University",
+      year: "2022 - 2026",
       description: "Relevant coursework: Data Structures, Algorithms, Web Development, Machine Learning"
     },
     {
-      degree: "High School Diploma",
-      institution: "Your High School Name",
-      year: "2018 - 2020",
-      description: "Graduated with honors, participated in national-level coding competitions"
+      degree: "High School Intermediate",
+      institution: "Sri Chaitanya College",
+      year: "2020 - 2022",
+      description: "IIT Academy "
     }
   ];
   return (

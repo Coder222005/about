@@ -1,8 +1,8 @@
 {
-  "homepage": "http://Coder222005.github.io/aboutme",
+  "homepage": "http://Coder222005.github.io/about",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Coder222005/aboutme.git"
+    "url": "https://github.com/Coder222005/about.git"
   },
   "name": "about",
   "version": "0.1.0",

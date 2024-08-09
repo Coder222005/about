@@ -1,41 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Linkedin, Mail, Code, Database, Brain, Globe, GraduationCap ,Github} from 'lucide-react';
+import { Linkedin, Mail, Code, Database, Brain, Globe, GraduationCap, Github } from 'lucide-react';
 import image from './image.jpeg';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const textArray = ['Frontend Developer', 'ML Engineer'];
-
-  useEffect(() => {
-    let timer;
-    const handleTyping = () => {
-      const i = loopNum % textArray.length;
-      const fullText = textArray[i];
-
-      setDisplayText(isDeleting 
-        ? fullText.substring(0, displayText.length - 1) 
-        : fullText.substring(0, displayText.length + 1)
-      );
-
-      setTypingSpeed(isDeleting ? 30 : 150);
-
-      if (!isDeleting && displayText === fullText) {
-        setTimeout(() => setIsDeleting(true), 500);
-      } else if (isDeleting && displayText === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-      }
-    };
-
-    timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum, typingSpeed]);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -51,6 +21,7 @@ const Portfolio = () => {
   
     return () => observer.disconnect();
   }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'contact'];
@@ -72,10 +43,10 @@ const Portfolio = () => {
   }, []);
 
   const projects = [
-    { title: 'Personal Portfolio', description: 'Written using javaScript with react.js framework and designed using bootstrap ',link:"https://coder222005.github.io/about/" },
-    { title: 'Multivariate Linear Regression', description: 'I have applied the mulivariate linear regression using sklearn pipelines',link :"https://colab.research.google.com/drive/1Ff2r5izMyjmacPMmrhbjxWlq1mXrCpwi?usp=sharing"},
-    
+    { title: 'Personal Portfolio', description: 'Written using JavaScript with React.js framework and designed using Bootstrap', link: "https://coder222005.github.io/about/" },
+    { title: 'Multivariate Linear Regression', description: 'I have applied the multivariate linear regression using sklearn pipelines', link: "https://colab.research.google.com/drive/1Ff2r5izMyjmacPMmrhbjxWlq1mXrCpwi?usp=sharing" },
   ];
+
   const skillCategories = [
     {
       icon: <Globe size={32} />,
@@ -98,6 +69,7 @@ const Portfolio = () => {
       skills: ["Machine Learning", "AI Enthusiast"]
     }
   ];
+
   const educationData = [
     {
       degree: "Bachelor of Technology in Computer Science",
@@ -109,20 +81,21 @@ const Portfolio = () => {
       degree: "High School Intermediate",
       institution: "Sri Chaitanya College",
       year: "2020 - 2022",
-      description: "IIT Academy "
+      description: "IIT Academy"
     }
   ];
+
   return (
     <div className="portfolio">
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top "style={{backgroundColor:"#FF8553" ,borderRadius:"25px 25px 25px 25px",marginTop:"10px",height:"46px",marginLeft:"100px",marginRight:"100px"}} >
-        <div className="container one ">
-          <a className="navbar-brand" href="#home"style={{ fontFamily:"Roboto Condensed"}}>Dheeraj Reddy</a>
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" style={{backgroundColor:"#FF8553", borderRadius:"25px 25px 25px 25px", marginTop:"10px", height:"46px", marginLeft:"100px", marginRight:"100px"}}>
+        <div className="container one">
+          <a className="navbar-brand" href="#home" style={{ fontFamily:"Roboto Condensed" }}>Dheeraj Reddy</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto" style={{fontFamily:"DM Sans"}}>
-              {['Home', 'About','Education','Skills', 'Projects', 'Contact'].map((item) => (
+              {['Home', 'About', 'Education', 'Skills', 'Projects', 'Contact'].map((item) => (
                 <li className="nav-item" key={item}>
                   <a 
                     className={`nav-link ${activeSection === item.toLowerCase() ? 'active' : ''}`} 
@@ -141,16 +114,15 @@ const Portfolio = () => {
         <div className="container text-center">
           <h1 className="display-1 mb-4 animate__animated animate__fadeInDown" style={{fontFamily:"Roboto Condensed",color:"white"}}>My name is Dheeraj</h1>
           <p className="lead mb-5 animate__animated animate__fadeInUp banner" style={{fontFamily:"DM Sans",color:"white"}}>
-            <span className="typewriter">{displayText}</span>
-            <span className="cursor"></span>
+            I am Frontend Developer
           </p>
           <a href="https://drive.google.com/file/d/1k2uOudyE50AnG_JeXGBLbTNGLHcr2Nlp/view?usp=sharing" className="btn btn-primary btn-lg animate__animated animate__fadeInUp">Resume</a>
         </div>
       </section>
 
       <section id="about" className="py-5 bg-white">
-        <div className="container ">
-          <h2 className="text-center mb-5 " style ={{fontFamily:"Roboto Condensed",borderBottom:"solid black 3px",color:"black"}}>About Me</h2>
+        <div className="container">
+          <h2 className="text-center mb-5" style={{fontFamily:"Roboto Condensed", borderBottom:"solid black 3px", color:"black"}}>About Me</h2>
           <div className="row">
             <div className="col-md-6 animate__animated animate__fadeInLeft">
               <img src={image} alt="Your Name" className="img-fluid rounded-circle mb-4" />
@@ -161,18 +133,18 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
       <section id="education" className="py-5 bg-white">
         <div className="container">
-          <h2 className="text-center mb-5"style ={{fontFamily:"Roboto Condensed",borderBottom:"solid black 3px" ,color:"black"}}>My Education</h2>
+          <h2 className="text-center mb-5" style={{fontFamily:"Roboto Condensed", borderBottom:"solid black 3px", color:"black"}}>My Education</h2>
           <div className="row justify-content-center">
             <div className="col-md-8">
               <div className="timeline">
                 {educationData.map((edu, index) => (
                   <div key={index} className="timeline-item mb-5">
                     <div className="timeline-icon text-white rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: "#ff8553" }}>
-    <GraduationCap size={24} />
-</div>
-
+                      <GraduationCap size={24} />
+                    </div>
                     <div className="timeline-content bg-white p-4 rounded shadow" style={{fontFamily:"DM Sans"}}>
                       <h3 className="h5 mb-0">{edu.degree}</h3>
                       <span className="text" style={{opacity:"0.46"}}>{edu.institution} | {edu.year}</span>
@@ -185,19 +157,19 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
       <section id="skills" className="py-5 bg-white">
         <div className="container">
-          <h2 className="text-center mb-5"style ={{fontFamily:"Roboto Condensed",borderBottom:"solid black 3px",color:"black"}}>My Skills</h2>
+          <h2 className="text-center mb-5" style={{fontFamily:"Roboto Condensed", borderBottom:"solid black 3px", color:"black"}}>My Skills</h2>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             {skillCategories.map((category, index) => (
               <div key={index} className="col">
                 <div className="card h-100 shadow-sm">
                   <div className="card-body text-center">
                     <div className="mb-4">
-                    <span className="d-inline-block p-3 rounded-circle text-white" style={{ backgroundColor: "#ff8553" }}>
-                                 {category.icon}
-                                 </span>
-
+                      <span className="d-inline-block p-3 rounded-circle text-white" style={{ backgroundColor: "#ff8553" }}>
+                        {category.icon}
+                      </span>
                     </div>
                     <h5 className="card-title">{category.title}</h5>
                     <ul className="list-unstyled">
@@ -210,16 +182,16 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-          </div>
+        </div>
       </section>
+
       <section id="projects" className="py-5">
         <div className="container">
-          <h2 className="text-center mb-5"style ={{fontFamily:"Roboto Condensed",borderBottom:"solid black 3px"}}>My Projects</h2>
+          <h2 className="text-center mb-5" style={{fontFamily:"Roboto Condensed", borderBottom:"solid black 3px"}}>My Projects</h2>
           <div className="row">
             {projects.map((project, index) => (
               <div key={index} className="col-md-4 mb-4">
                 <div className="card h-100 shadow-sm animate__animated animate__fadeInUp">
-                  
                   <div className="card-body">
                     <h5 className="card-title" style={{borderBottom: "solid black 2px"}}>{project.title}</h5>
                     <p className="card-text">{project.description}</p>
@@ -234,7 +206,7 @@ const Portfolio = () => {
 
       <section id="contact" className="py-5 bg-white">
         <div className="container bg-white">
-          <h2 className="text-center mb-5"style ={{fontFamily:"Roboto Condensed",borderBottom:"solid black 3px"}}>Contact Me</h2>
+          <h2 className="text-center mb-5" style={{fontFamily:"Roboto Condensed", borderBottom:"solid black 3px"}}>Contact Me</h2>
           <div className="row justify-content-center">
             <div className="col-md-6">
               <form className="animate__animated animate__fadeInUp contact-form">
@@ -253,16 +225,15 @@ const Portfolio = () => {
           </div>
           <div className="mt-5 text-center">
             <a href="https://www.linkedin.com/in/bommireddy-venkata-dheeraj-reddy-0a6752218" className="me-3"><Linkedin size={24} /></a>
-            <a href="mailto:bommireddyvenkatadheerajreddy@gmail.com" className ="me-3"><Mail size={24} /></a>
-            <a href="https://github.com/Coder222005"className="me-3"><Github size={24}/></a>
+            <a href="mailto:bommireddyvenkatadheerajreddy@gmail.com" className="me-3"><Mail size={24} /></a>
+            <a href="https://github.com/Coder222005" className="me-3"><Github size={24}/></a>
           </div>
         </div>
       </section>
 
-      <footer className="text-white text-center py-3" style={{backgroundColor: "#FF8553",fontFamily:"DM Sans"}}>
-    <p>&copy; 2024 Dheeraj Reddy. All rights reserved.</p>
-</footer>
-
+      <footer className="text-white text-center py-3" style={{backgroundColor: "#FF8553", fontFamily:"DM Sans"}}>
+        <p>&copy; 2024 Dheeraj Reddy. All rights reserved.</p>
+      </footer>
 
       <style jsx>{`
         :root {
